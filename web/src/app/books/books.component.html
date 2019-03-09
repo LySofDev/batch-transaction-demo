@@ -1,0 +1,11 @@
+<h1>Book Count {{ bookCount }} | {{ isLoadingBooks ? 'Loading...' : 'Done' }}</h1>
+<p>
+  <ng-container *ngIf="bookCount > 0">
+    <ng-container *ngFor="let book of allBooks">
+      <span>{{ book.title }}</span>
+    </ng-container>
+  </ng-container>
+  <ng-container>
+    <div>No books available.</div>
+  </ng-container>
+</p>

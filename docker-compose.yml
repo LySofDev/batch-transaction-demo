@@ -1,0 +1,24 @@
+version: '3.2'
+
+services:
+
+  database:
+    image: postgres
+    volumes:
+      - ./rest/db/data:/var/lib/postgresql/data
+
+  rest:
+    build: ./rest
+    command: rails s
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./rest:/app
+
+  web:
+    build: ./web
+    command: npm run start
+    ports:
+      - "3000:4200"
+    volumes:
+      - ./web:/app
